@@ -1,0 +1,15 @@
+-A destructive action game based in a modern city (think rampage)-
+goal: survive being attacked, to destroy the city and it's population
+space: cartoonish retro blocky look. offset top down view
+components: monster player, civilians, buildings, army soldiers
+mechanics: melee attack(light), tail bash(heavy), grab attack, move 360 , destroy buildings/people
+rules: 
+- points for each civilian killed
+- each building holds a random number of people, when destroyed (takes so many hits) some will survive and run away. you can kill them or let them escape
+- player has health that can be depleted by soldiers. soldiers can be killed
+- eating/killing people replenishes health
+
+the game is aimed at gamers who enjoy mindless destruction, and being the bad guy. They enjoy being in power. They would like variety, so the gameplay cannot be repetitive.
+
+
+[game name] is a city destruction game for those who love chaos.
