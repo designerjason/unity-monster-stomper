@@ -6,9 +6,9 @@ using UnityEngine.AI;
 public class EnemyController : MonoBehaviour
 {
     public GameObject bullet;
+    public IEnumerator shootPlayer;
     private GameObject player;
     private float distance;
-    public IEnumerator shootPlayer;
     NavMeshAgent agent;
     private Vector3 directionOfTarget;
     private bool challenged;
@@ -22,7 +22,6 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(player.transform.position);
         distance = Vector3.Distance(transform.position, player.transform.position);
         if(distance < 15f) {
             challenged = true;
@@ -39,10 +38,20 @@ public class EnemyController : MonoBehaviour
     // shoot the player, when close enough to them
     IEnumerator ShootPlayer()
     {
+        int rounds = 5;
         while(true) {
             if(challenged) {
-                GameObject tempBullet = Instantiate(bullet, new Vector3(transform.position.x, transform.position.y + 2, transform.position.z), transform.rotation) as GameObject;
-                yield return new WaitForSeconds(1);
+                Vector3 tempBulletPos = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
+
+                if(rounds == 0) {
+                    yield return new WaitForSeconds(2);
+                    rounds = 5;
+                } else {
+                    GameObject tempBullet = Instantiate(bullet, tempBulletPos, transform.rotation) as GameObject;
+                    rounds--;
+                }
+
+                yield return new WaitForSeconds(0.5f);
             } else {
                 yield return null;
             }

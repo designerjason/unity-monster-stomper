@@ -5,6 +5,7 @@ using UnityEngine;
 public class Building : MonoBehaviour
 {
     public int health = 100;
+    public int people;
     public int curHealth;
     private GameManager gameManager;
 

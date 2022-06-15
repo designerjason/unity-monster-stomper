@@ -27,6 +27,7 @@ public class Bullet : MonoBehaviour
     {
         // destroy bullet if it hits anything
         if(targets.Contains(other.gameObject.tag)) {
+            // TODO: this causes error if it hits player attack box
             Destroy(gameObject);
         }
 

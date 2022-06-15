@@ -9,8 +9,8 @@ public class PlayerController : MonoBehaviour
     public int curHealth;
     public float horizontalInput;
     public float verticalInput;
-    protected Vector3 lookDir;
     public GameManager gameManager;
+    protected Vector3 lookDir;    
 
     void Start() {
         curHealth = health;
@@ -58,7 +58,6 @@ public class PlayerController : MonoBehaviour
     {
         curHealth = curHealth - damageAmount;
         gameManager.playerHealth.text = curHealth.ToString();
-        Debug.Log("Player Health:" + curHealth);
         if(curHealth <= 0) {
             gameManager.GameOver("You Died!!");
         }
