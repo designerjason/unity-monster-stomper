@@ -7,6 +7,7 @@ public class Building : MonoBehaviour
     public int health = 100;
     public int curHealth;
     private GameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +15,7 @@ public class Building : MonoBehaviour
         curHealth = health;
     }
 
+    // building take damage
     public void Damage(int damageAmount)
     {
         curHealth = curHealth - damageAmount;
@@ -23,6 +25,7 @@ public class Building : MonoBehaviour
         }
     }
 
+    // building destroyed
     public void Destroy() 
     {
         gameObject.SetActive(false);

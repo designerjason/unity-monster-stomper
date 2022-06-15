@@ -8,11 +8,6 @@ public class Bullet : MonoBehaviour
     public int speed = 20;
     string[] targets = {"Building", "Player", "Bounds"};
     GameObject currentTarget;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -20,17 +15,22 @@ public class Bullet : MonoBehaviour
         Move();
     }
 
+    // move bullet
     void Move()
     {
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 
+
+    // what happens when bullet hits something
     void OnTriggerEnter(Collider other)
     {
+        // destroy bullet if it hits anything
         if(targets.Contains(other.gameObject.tag)) {
             Destroy(gameObject);
-        };
+        }
 
+        // player interaction
         if(other.gameObject.tag == "Player") {
             other.gameObject.GetComponent<PlayerController>().Damage(10);
         }

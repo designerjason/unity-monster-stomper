@@ -13,3 +13,19 @@ the game is aimed at gamers who enjoy mindless destruction, and being the bad gu
 
 
 [game name] is a city destruction game for those who love chaos.
+
+
+ASSETS
+-monster
+-soldier
+-civilian
+-buildings
+-environment
+
+SOUND
+player attack, taking damage, walking, death
+NPC death
+soldier shooting
+civilian screaming
+building destroyed
+ambient city sound

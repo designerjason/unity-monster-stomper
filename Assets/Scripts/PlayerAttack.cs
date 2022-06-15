@@ -6,18 +6,29 @@ public class PlayerAttack : MonoBehaviour
 {
     bool triggerStay = false;
     GameObject currentTarget;
-    PlayerController playerController;
+    public GameManager gameManager;
+    public PlayerController playerController;
 
     private void Update() {
+
+        // space is attack
         if(Input.GetKeyDown(KeyCode.Space) && triggerStay) {
-            if(currentTarget.tag == "Building") {
+
+            // check if we're hitting a building
+            if(currentTarget != null && currentTarget.tag == "Building") {
                 currentTarget.GetComponent<Building>().Damage(20);
             }
+
+            // check if we're hitting an enemy
             if(currentTarget.tag == "Enemy") {
-                Destroy(currentTarget);
+                if(currentTarget != null && currentTarget.tag == "Enemy") {
+                    Destroy(currentTarget);
+                }
                 triggerStay = false;
                 currentTarget = null;
-                if(playerController.health< 100) {
+
+                // add to health if not full
+                if(playerController.health < 100) {
                     playerController.Damage(-10);
                 }
             }

@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // direction player is in world
     void positionPlayer(Vector3 dir)
     {
         transform.Translate(dir * Time.deltaTime * speed, Space.World);
@@ -52,9 +53,11 @@ public class PlayerController : MonoBehaviour
         lookDir = dir;
     }
 
+    // take damage
     public void Damage(int damageAmount)
     {
         curHealth = curHealth - damageAmount;
+        gameManager.playerHealth.text = curHealth.ToString();
         Debug.Log("Player Health:" + curHealth);
         if(curHealth <= 0) {
             gameManager.GameOver("You Died!!");

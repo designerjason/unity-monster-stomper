@@ -64,7 +64,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 4899151808355869943, guid: d371ecff7f47f8b46975b17fb118539d, type: 3}
-  Bullet: {fileID: 5344269997642085390, guid: 2b720c05a613c774d9b1195e032e5b7d, type: 3}
+  bullet: {fileID: 5344269997642085390, guid: 2b720c05a613c774d9b1195e032e5b7d, type: 3}
 --- !u!195 &1937708309
 NavMeshAgent:
   m_ObjectHideFlags: 0
