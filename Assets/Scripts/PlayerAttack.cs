@@ -16,17 +16,16 @@ public class PlayerAttack : MonoBehaviour
 
             // check if we're hitting a building
             if(currentTarget != null && currentTarget.tag == "Building") {
-                currentTarget.GetComponent<Building>().Damage(20);
+                currentTarget.GetComponent<Building>().Damage(10);
+                currentTarget.GetComponent<Building>().peopleOut = true;
             }
         }
 
-        // this kills enemy of we touch (trample) them, and gives us health
+        // this kills enemy if we touch (trample) them, and it gives us health
         if(triggerStay) {
             // check if we're hitting an enemy
             if(currentTarget.tag == "Enemy") {
-                if(currentTarget != null) {
-                    Destroy(currentTarget);
-                }
+                Destroy(currentTarget);
                 triggerStay = false;
                 currentTarget = null;
 

@@ -10,16 +10,17 @@ public class GameManager : MonoBehaviour
     public GameObject enemy;
     public TextMeshProUGUI endScreenText;
     public TextMeshProUGUI playerHealth;
+    public TextMeshProUGUI buildingCountText;
     public List<Transform> spawnList = new List<Transform>();
+    public List<Transform> boundsList = new List<Transform>();
 
-    // Start is called before the first frame update
     void Start()
     {
         buildingCount = GameObject.FindGameObjectsWithTag("Building").Length;
+        BuildingCount(buildingCount);
         StartCoroutine("SpawnEnemy");
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(buildingCount == 0) {
@@ -43,5 +44,10 @@ public class GameManager : MonoBehaviour
             GameObject tempEnemy = Instantiate(enemy, spawnList[index].position, transform.rotation);
             yield return new WaitForSeconds(4);
         }
+    }
+
+    // display for number of buildings not destroyed
+    public void BuildingCount(int count) {
+        buildingCountText.text = "Buildings: " + count.ToString();
     }
 }

@@ -63,7 +63,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17f3e96dd13d1ec448747c99be86d9bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 4899151808355869943, guid: d371ecff7f47f8b46975b17fb118539d, type: 3}
   bullet: {fileID: 5344269997642085390, guid: 2b720c05a613c774d9b1195e032e5b7d, type: 3}
 --- !u!195 &1937708309
 NavMeshAgent:
@@ -81,7 +80,7 @@ NavMeshAgent:
   m_AngularSpeed: 120
   m_StoppingDistance: 15
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 0

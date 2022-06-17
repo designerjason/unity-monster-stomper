@@ -16,12 +16,12 @@ public class PlayerController : MonoBehaviour
         curHealth = health;
     }
 
-    // Update is called once per frame
     void Update()
     {
         movePlayer();
     }
 
+    // player movement controller
     void movePlayer()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
