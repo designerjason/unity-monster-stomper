@@ -4,21 +4,28 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    Animator animator;
     bool triggerStay = false;
     GameObject currentTarget;
     public GameManager gameManager;
     public PlayerController playerController;
 
+    void Start() {
+        animator = GameObject.Find("/Player/Monster").GetComponent<Animator>();
+    }
+
     private void Update() {
 
         // space is attack
-        if(Input.GetKeyDown(KeyCode.Space) && triggerStay) {
+        if(Input.GetKeyDown(KeyCode.Space)) {
+
+            animator.SetBool("isAttacking", true);
 
             // check if we're hitting a building
-            if(currentTarget != null && currentTarget.tag == "Building") {
+            if(triggerStay && currentTarget != null && currentTarget.tag == "Building") {
                 currentTarget.GetComponent<Building>().Damage(10);
                 currentTarget.GetComponent<Building>().peopleOut = true;
-            }
+            } 
         }
 
         // this kills enemy if we touch (trample) them, and it gives us health
@@ -30,7 +37,7 @@ public class PlayerAttack : MonoBehaviour
                 currentTarget = null;
 
                 // add to health if not full
-                if(playerController.health < 100) {
+                if(playerController.curHealth < 100) {
                     playerController.Damage(-10);
                 }
             }

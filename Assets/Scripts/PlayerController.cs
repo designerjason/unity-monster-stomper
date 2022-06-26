@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    Animator animator;
     public float speed = 15;
     public int health = 100;
     public int curHealth;
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour
 
     void Start() {
         curHealth = health;
+        animator = GameObject.Find("/Player/Monster").GetComponent<Animator>();
     }
 
     void Update()
@@ -26,6 +28,12 @@ public class PlayerController : MonoBehaviour
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
+
+        if(verticalInput != 0 || horizontalInput !=0) {
+            animator.SetBool("isWalking", true);
+        } else {
+            animator.SetBool("isWalking", false);
+        }
 
         if (verticalInput > 0)
         {
@@ -59,7 +67,7 @@ public class PlayerController : MonoBehaviour
         curHealth = curHealth - damageAmount;
         gameManager.playerHealth.text = curHealth.ToString();
         if(curHealth <= 0) {
-            gameManager.GameOver("You Died!!");
+            animator.SetBool("isDead", true);
         }
     }
 }
