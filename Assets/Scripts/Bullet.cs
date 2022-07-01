@@ -32,7 +32,7 @@ public class Bullet : MonoBehaviour
 
         // player interaction
         if(other.gameObject.tag == "Player") {
-            //other.gameObject.GetComponent<PlayerController>().Damage(5);
+            other.gameObject.GetComponent<PlayerController>().Damage(5);
         }
     }
 }

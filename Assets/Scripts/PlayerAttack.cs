@@ -50,6 +50,12 @@ public class PlayerAttack : MonoBehaviour
         currentTarget = other.gameObject;
     }
 
+    void OnTriggerStay(Collider other)
+    {
+        triggerStay = true;
+        currentTarget = other.gameObject;
+    }
+
     void OnTriggerExit(Collider other)
     {
         triggerStay = false;
